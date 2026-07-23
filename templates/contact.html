@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Contact | Liberty Charity Foundation{% endblock %}
+{% block description %}Ask a question, partner on a project, or find out how support is directed.{% endblock %}
+
+{% block content %}
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1 class="h-lg">Start a conversation</h1>
+    <p class="lede">Tell us what you want to know. We read every message and reply directly.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap contact-grid">
+    <div>
+      {% with messages = get_flashed_messages(category_filter=["error"]) %}
+        {% if messages %}
+        <ul class="flash" role="alert">
+          {% for m in messages %}<li>{{ m }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      {% endwith %}
+
+      <form class="form" method="post" action="{{ url_for('contact') }}" novalidate>
+        <div class="honeypot" aria-hidden="true">
+          <label for="website">Leave this field empty</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="label" for="name">Name</label>
+          <input class="input" type="text" id="name" name="name" value="{{ form.name }}" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <input class="input" type="email" id="email" name="email" value="{{ form.email }}" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label class="label" for="organization">Organization <span class="label-hint">(optional)</span></label>
+          <input class="input" type="text" id="organization" name="organization" value="{{ form.organization }}" autocomplete="organization">
+        </div>
+
+        <div class="field">
+          <label class="label" for="topic">What is this about</label>
+          <select class="select" id="topic" name="topic">
+            <option value="">Choose one</option>
+            <option value="Partnership" {% if form.topic == "Partnership" %}selected{% endif %}>Partnership</option>
+            <option value="Giving" {% if form.topic == "Giving" %}selected{% endif %}>Giving</option>
+            <option value="Volunteering" {% if form.topic == "Volunteering" %}selected{% endif %}>Volunteering</option>
+            <option value="A project question" {% if form.topic == "A project question" %}selected{% endif %}>A project question</option>
+            <option value="Something else" {% if form.topic == "Something else" %}selected{% endif %}>Something else</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="label" for="message">Message</label>
+          <textarea class="textarea" id="message" name="message" required>{{ form.message }}</textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Send message</button>
+      </form>
+    </div>
+
+    <aside class="contact-aside">
+      <h2 class="h-sm">Email</h2>
+      <p class="muted"><a href="mailto:{{ contact_email }}">{{ contact_email }}</a></p>
+
+      <h2 class="h-sm mt-2">Where support goes</h2>
+      <p class="muted">Two active projects: food resources in Uganda, and food, land cultivation, and microfinancing in Cameroon.</p>
+      <p><a href="{{ url_for('work') }}">See both projects</a></p>
+    </aside>
+  </div>
+</section>
+{% endblock %}
+
+{% block cta %}{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Our work | Liberty Charity Foundation{% endblock %}
+{% block description %}Two active projects: food support in Uganda, and food, land cultivation, and microfinancing in Cameroon.{% endblock %}
+
+{% block content %}
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Our work</p>
+    <h1 class="h-lg">Two communities, two different rungs of the same ladder</h1>
+    <p class="lede">Uganda is establishing stability. Cameroon is building self-sufficiency. Both are on the same path.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    {% for pr in projects %}
+    <article class="project {% if not loop.first %}project-alt{% endif %} reveal">
+      <div class="project-media">
+        <img src="{{ url_for('static', filename='img/' ~ pr.photo ~ '-1800.jpg') }}"
+             alt="{{ pr.alt }}" loading="lazy" width="1800" height="1200">
+      </div>
+      <div>
+        <h2 class="project-country">{{ pr.country }}</h2>
+        <ul class="tag-row">
+          <li class="tag tag-stage">Stage {{ pr.stage }} &middot; {{ pr.stage_name }}</li>
+          {% for prog in pr.programs %}<li class="tag">{{ prog }}</li>{% endfor %}
+        </ul>
+        <p>{{ pr.summary }}</p>
+        <ul class="card-list">
+          {% for d in pr.detail %}<li>{{ d }}</li>{% endfor %}
+        </ul>
+        <p class="project-next">{{ pr.next }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="band band-mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The programs</p>
+      <h2 class="h-lg">What we fund, and why in this order</h2>
+    </div>
+    <div class="grid-3">
+      {% for p in programs %}
+      <article class="card card-{{ loop.index }} reveal">
+        <p class="card-layer">{{ p.layer }}</p>
+        <h3 class="card-title">{{ p.name }}</h3>
+        <p class="card-outcome">{{ p.outcome }}</p>
+        <ul class="card-list">
+          {% for pt in p.points %}<li>{{ pt }}</li>{% endfor %}
+        </ul>
+        <p class="card-close">{{ p.close }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

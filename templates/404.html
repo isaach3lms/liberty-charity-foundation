@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Page not found | Liberty Charity Foundation{% endblock %}
+
+{% block content %}
+<section class="band">
+  <div class="wrap-narrow">
+    <p class="eyebrow">404</p>
+    <h1 class="h-lg">That page does not exist</h1>
+    <p class="lede">The link may be out of date. These pages are current.</p>
+    <p class="actions-row">
+      <a class="btn btn-primary" href="{{ url_for('home') }}">Home</a>
+      <a class="btn btn-ghost" href="{{ url_for('work') }}">Our work</a>
+    </p>
+  </div>
+</section>
+{% endblock %}

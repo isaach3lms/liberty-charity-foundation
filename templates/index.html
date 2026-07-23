@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Liberty Charity Foundation | Building liberty through compassion{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <img class="hero-media" src="{{ url_for('static', filename='img/uganda-1800.jpg') }}" alt="Schoolchildren in Uganda leaning out of a classroom window" fetchpriority="high">
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-body">
+    <p class="eyebrow">Uganda &middot; Cameroon</p>
+    <h1 class="h-xl hero-title">Building liberty through <span class="accent">compassion</span></h1>
+    <p class="lede hero-lede">We help underdeveloped communities move from survival to self-sufficiency through food resources, land cultivation, and microfinancing.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('work') }}">See where we work</a>
+      <a class="btn btn-light" href="{{ url_for('about') }}">How the model works</a>
+    </div>
+  </div>
+  <span class="hero-credit">Uganda</span>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">The idea</p>
+        <p class="serif-quote">Liberty is not something given. It is something built through compassion in action.</p>
+      </div>
+      <div class="prose">
+        <p>A community living in liberty is not simply free in a legal sense. It is a place where people have real capacity to move forward: access to opportunity, freedom from preventable barriers, and the dignity to make choices that shape their own future.</p>
+        <p>That capacity has to be built. It is built in a specific order, and each stage makes the next one possible.</p>
+        <p><a href="{{ url_for('about') }}">Read what liberty means to us</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The framework</p>
+      <h2 class="h-lg">Four stages, in order</h2>
+      <p class="lede">Aid without sequence creates dependency. We work a community up the ladder, and we do not skip a rung.</p>
+    </div>
+
+    <ol class="progression">
+      {% for s in stages %}
+      <li class="stage stage-{{ s.n }} reveal">
+        <span class="stage-dot" aria-hidden="true"></span>
+        <span class="stage-num">Stage {{ s.n }}</span>
+        <span class="stage-name">{{ s.name }}</span>
+        <p class="stage-line">{{ s.line }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The programs</p>
+      <h2 class="h-lg">Three programs that move a community up</h2>
+      <p class="lede">Each program does one job. Together they turn compassion into opportunity, and opportunity into lasting independence.</p>
+    </div>
+
+    <div class="grid-3">
+      {% for p in programs %}
+      <article class="card card-{{ loop.index }} reveal">
+        <p class="card-layer">{{ p.layer }}</p>
+        <h3 class="card-title">{{ p.name }}</h3>
+        <p class="card-outcome">{{ p.outcome }}</p>
+        <ul class="card-list">
+          {% for pt in p.points %}<li>{{ pt }}</li>{% endfor %}
+        </ul>
+        <p class="card-close">{{ p.close }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="band band-mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Where we work</p>
+      <h2 class="h-lg">Two communities. Two different rungs.</h2>
+    </div>
+
+    <div class="split split-start reveal">
+      {% for pr in projects %}
+      <article>
+        <div class="split-media">
+          <img src="{{ url_for('static', filename='img/' ~ pr.photo ~ '-900.jpg') }}" alt="{{ pr.alt }}" loading="lazy" width="900" height="600">
+        </div>
+        <ul class="tag-row mt-1">
+          <li class="tag tag-stage">Stage {{ pr.stage }} &middot; {{ pr.stage_name }}</li>
+        </ul>
+        <h3 class="h-md">{{ pr.country }}</h3>
+        <p class="muted">{{ pr.summary }}</p>
+      </article>
+      {% endfor %}
+    </div>
+
+    <p class="mt-3"><a class="btn btn-ghost" href="{{ url_for('work') }}">Read about both projects</a></p>
+  </div>
+</section>
+{% endblock %}

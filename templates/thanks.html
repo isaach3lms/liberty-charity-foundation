@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Message sent | Liberty Charity Foundation{% endblock %}
+
+{% block content %}
+<section class="band">
+  <div class="wrap-narrow">
+    <p class="eyebrow">Message sent</p>
+    <h1 class="h-lg">Thank you. We have your message.</h1>
+    <p class="lede">Someone will reply to you directly. In the meantime, here is where the work stands today.</p>
+    <p class="actions-row">
+      <a class="btn btn-primary" href="{{ url_for('work') }}">See our work</a>
+      <a class="btn btn-ghost" href="{{ url_for('home') }}">Back to home</a>
+    </p>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}About | Liberty Charity Foundation{% endblock %}
+{% block description %}Liberty is not something given. It is something built through compassion in action. How Liberty Charity Foundation defines liberty and builds it.{% endblock %}
+
+{% block content %}
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h1 class="h-lg">Not just charity. Community infrastructure for opportunity.</h1>
+    <p class="lede">Where compassion creates opportunity and every helping hand moves a community closer to liberty.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap-narrow prose">
+    <h2 class="h-md">Our vision</h2>
+    <p>We help underdeveloped communities move from survival to self-sufficiency through food resources, land cultivation, and microfinancing. Liberty is the outcome of a community equipped to sustain itself.</p>
+    <p>Relief that arrives without a path forward keeps people dependent on the next delivery. We fund the thing that comes after relief: productive land, working capital, and the security that lets a family plan past this week.</p>
+  </div>
+</section>
+
+<section class="band band-mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The shift</p>
+      <h2 class="h-lg">What changes when you build instead of give</h2>
+    </div>
+    <ul class="shift">
+      <li>
+        <span class="shift-from">Not just charity</span>
+        <span class="shift-to">Community infrastructure for opportunity</span>
+      </li>
+      <li>
+        <span class="shift-from">Not just help</span>
+        <span class="shift-to">Collective upward movement</span>
+      </li>
+      <li>
+        <span class="shift-from">Not just freedom</span>
+        <span class="shift-to">Freedom made possible through shared care</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Definition</p>
+      <h2 class="h-lg">What it means to live in liberty</h2>
+      <p class="lede">A community living in liberty is not just free in a legal sense. It is a place where people have real capacity to move forward in life.</p>
+    </div>
+
+    <dl class="pillars">
+      <div>
+        <dt class="pillar-term">Access to opportunity</dt>
+        <dd class="pillar-def">Education, work, resources, and support systems that are actually reachable.</dd>
+      </div>
+      <div>
+        <dt class="pillar-term">Freedom from preventable barriers</dt>
+        <dd class="pillar-def">Poverty, isolation, and lack of care are solvable. They should not decide a life.</dd>
+      </div>
+      <div>
+        <dt class="pillar-term">Dignity and agency</dt>
+        <dd class="pillar-def">People make the choices that shape their own future, rather than receiving them.</dd>
+      </div>
+      <div>
+        <dt class="pillar-term">Shared responsibility</dt>
+        <dd class="pillar-def">Wellbeing is collective. A community rises together or not at all.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="band band-mist">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The framework</p>
+      <h2 class="h-lg">Survival to liberty</h2>
+      <p class="lede">Each stage is a precondition for the one after it. This is how we decide what a community needs next.</p>
+    </div>
+    <ol class="progression">
+      {% for s in stages %}
+      <li class="stage stage-{{ s.n }} reveal">
+        <span class="stage-dot" aria-hidden="true"></span>
+        <span class="stage-num">Stage {{ s.n }}</span>
+        <span class="stage-name">{{ s.name }}</span>
+        <p class="stage-line">{{ s.line }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+{% endblock %}
