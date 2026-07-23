@@ -144,12 +144,14 @@ def home():
     )
 
 
-@app.route("/about")
+@app.route("/about", strict_slashes=False)
 def about():
     return render_template("about.html", page="about", stages=STAGES)
 
 
-@app.route("/our-work")
+@app.route("/our-work", strict_slashes=False)
+@app.route("/work", strict_slashes=False)
+@app.route("/ourwork", strict_slashes=False)
 def work():
     return render_template(
         "work.html", page="work",
@@ -157,7 +159,7 @@ def work():
     )
 
 
-@app.route("/contact", methods=["GET", "POST"])
+@app.route("/contact", methods=["GET", "POST"], strict_slashes=False)
 def contact():
     form = {"name": "", "email": "", "organization": "", "topic": "", "message": ""}
 
@@ -198,7 +200,7 @@ def contact():
     return render_template("contact.html", page="contact", form=form)
 
 
-@app.route("/contact/thank-you")
+@app.route("/contact/thank-you", strict_slashes=False)
 def contact_thanks():
     return render_template("thanks.html", page="contact")
 
@@ -234,7 +236,12 @@ def send_contact_email(form):
 
 @app.route("/healthz")
 def healthz():
-    return {"status": "ok"}, 200
+    """Confirms Flask is serving and lists the routes it knows about."""
+    routes = sorted(
+        str(r.rule) for r in app.url_map.iter_rules()
+        if r.endpoint != "static"
+    )
+    return {"status": "ok", "routes": routes}, 200
 
 
 @app.errorhandler(404)

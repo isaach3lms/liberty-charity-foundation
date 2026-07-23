@@ -3,7 +3,13 @@
 
 {% block content %}
 <section class="hero">
-  <img class="hero-media" src="{{ url_for('static', filename='img/uganda-1800.jpg') }}" alt="Schoolchildren in Uganda leaning out of a classroom window" fetchpriority="high">
+  <img class="hero-media"
+       src="{{ url_for('static', filename='img/hero-1600.jpg') }}"
+       srcset="{{ url_for('static', filename='img/hero-800.jpg') }} 800w,
+               {{ url_for('static', filename='img/hero-1600.jpg') }} 1600w"
+       sizes="100vw"
+       alt="A girl smiling in golden afternoon light, other children behind her in the village"
+       width="1600" height="1066" fetchpriority="high">
   <div class="hero-scrim"></div>
   <div class="wrap hero-body">
     <p class="eyebrow">Uganda &middot; Cameroon</p>
@@ -14,7 +20,7 @@
       <a class="btn btn-light" href="{{ url_for('about') }}">How the model works</a>
     </div>
   </div>
-  <span class="hero-credit">Uganda</span>
+  <span class="hero-credit">Cameroon</span>
 </section>
 
 <section class="band">
