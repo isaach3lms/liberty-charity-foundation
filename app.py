@@ -52,6 +52,17 @@ STAGES = [
 
 PROGRAMS = [
     {
+        "name": "Pastoral support",
+        "layer": "The care layer",
+        "outcome": "Presence in hospitals",
+        "points": [
+            "Chaplaincy and prayer for patients and families in hospitals",
+            "Steady presence during illness, recovery, and loss",
+            "Dignity and comfort when people are at their most vulnerable",
+        ],
+        "close": "Liberty starts with knowing no one is left to face the hardest moments alone.",
+    },
+    {
         "name": "Food resources",
         "layer": "The survival and dignity layer",
         "outcome": "Immediate stability",
@@ -90,6 +101,7 @@ PROJECTS = [
     {
         "slug": "uganda",
         "country": "Uganda",
+        "area": "Ibanda, Kasese",
         "stage": 2,
         "stage_name": "Stability",
         "programs": ["Food resources"],
@@ -108,6 +120,7 @@ PROJECTS = [
     {
         "slug": "cameroon",
         "country": "Cameroon",
+        "area": "Buea, Southwest Region",
         "stage": 3,
         "stage_name": "Self-sufficiency",
         "programs": ["Food resources", "Land cultivation", "Microfinancing"],
@@ -122,6 +135,44 @@ PROJECTS = [
             "Microfinancing opening credit to small business owners",
         ],
         "next": "Next: capital circulating locally, without outside dependency.",
+    },
+    {
+        "slug": "nigeria-lagos",
+        "country": "Nigeria",
+        "area": "Ojo, Lagos State",
+        "stage": 1,
+        "stage_name": "Survival",
+        "programs": ["Pastoral support", "Food resources"],
+        "photo": "pastoral",
+        "alt": "A health worker tending to a mother and infant in a clinic",
+        "summary": "In Lagos we are establishing the first layer: presence and food. "
+                   "Pastoral support meets people in hospitals, and food resources "
+                   "address the most urgent needs while the groundwork is laid.",
+        "detail": [
+            "Pastoral and hospital-based support for patients and families",
+            "Food resources targeting the most urgent gaps",
+            "Early relationships that the full model will build on",
+        ],
+        "next": "Next: consistent food, then the path toward cultivation.",
+    },
+    {
+        "slug": "nigeria-anambra",
+        "country": "Nigeria",
+        "area": "Awka, Anambra State",
+        "stage": 1,
+        "stage_name": "Survival",
+        "programs": ["Pastoral support", "Food resources"],
+        "photo": "uganda",
+        "alt": "Community members gathered outdoors",
+        "summary": "Awka is our newest community. Work here starts the same way every "
+                   "community does: pastoral presence and food resources that create the "
+                   "baseline security needed before anything else can grow.",
+        "detail": [
+            "Pastoral support introduced through local hospitals",
+            "Food resources for the households under the most strain",
+            "Assessment of land and opportunity for later stages",
+        ],
+        "next": "Next: stabilizing food supply as the foundation for what follows.",
     },
 ]
 

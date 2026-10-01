@@ -442,18 +442,24 @@ a:hover { color: var(--orange); }
 .grid-3 { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
 @media (min-width: 780px) { .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
 
+/* Four-up program grid: 1 col on phones, 2x2 on tablets, one row on desktop. */
+.grid-4 { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+@media (min-width: 600px) { .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; } }
+@media (min-width: 1000px) { .grid-4 { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; } }
+
 .card {
   background: var(--paper);
   border: 1px solid var(--rule);
-  border-top: 4px solid var(--orange);
+  border-top: 4px solid var(--navy);
   border-radius: var(--radius);
   padding: 1.9rem 1.6rem;
   display: flex;
   flex-direction: column;
 }
 
-.card-2 { border-top-color: var(--blue); }
-.card-3 { border-top-color: var(--sky); }
+.card-2 { border-top-color: var(--orange); }
+.card-3 { border-top-color: var(--blue); }
+.card-4 { border-top-color: var(--sky); }
 
 .card-layer {
   font-size: 0.7rem;
@@ -464,16 +470,31 @@ a:hover { color: var(--orange); }
   margin: 0 0 0.45rem;
 }
 
-.card-title { font-family: var(--display); font-size: 1.5rem; color: var(--navy); margin: 0 0 0.35rem; line-height: 1.2; }
+.card-title { font-family: var(--display); font-size: 1.4rem; color: var(--navy); margin: 0 0 0.35rem; line-height: 1.18; word-break: break-word; }
 
 .card-outcome {
   font-size: 0.92rem;
   font-weight: 600;
-  color: var(--orange);
+  color: var(--navy);
   margin: 0 0 1.1rem;
 }
-.card-2 .card-outcome { color: var(--blue); }
+.card-2 .card-outcome { color: var(--orange); }
 .card-3 .card-outcome { color: var(--blue); }
+.card-4 .card-outcome { color: var(--blue); }
+
+/* Location area line under a country name. */
+.place-line {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 0.7rem;
+}
+
+/* Home "where we work" cards: image height tuned for the 4-up grid. */
+.grid-4 .split-media img { height: 200px; margin-bottom: 1rem; }
+@media (min-width: 600px) { .grid-4 .split-media img { height: 180px; } }
 
 .card-list { list-style: none; margin: 0 0 1.25rem; padding: 0; }
 .card-list li {
