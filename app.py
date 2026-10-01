@@ -137,42 +137,24 @@ PROJECTS = [
         "next": "Next: capital circulating locally, without outside dependency.",
     },
     {
-        "slug": "nigeria-lagos",
+        "slug": "nigeria",
         "country": "Nigeria",
-        "area": "Ojo, Lagos State",
+        "area": "Ojo, Lagos State &middot; Awka, Anambra State",
+        "badge": "Support",
         "stage": 1,
-        "stage_name": "Survival",
+        "stage_name": "Support",
         "programs": ["Pastoral support", "Food resources"],
         "photo": "pastoral",
         "alt": "A health worker tending to a mother and infant in a clinic",
-        "summary": "In Lagos we are establishing the first layer: presence and food. "
-                   "Pastoral support meets people in hospitals, and food resources "
-                   "address the most urgent needs while the groundwork is laid.",
+        "summary": "Nigeria is where our work begins at the very first layer: presence. "
+                   "Pastoral support meets patients and families in hospitals, and food "
+                   "resources address the most urgent needs while the groundwork is laid.",
         "detail": [
             "Pastoral and hospital-based support for patients and families",
             "Food resources targeting the most urgent gaps",
             "Early relationships that the full model will build on",
         ],
         "next": "Next: consistent food, then the path toward cultivation.",
-    },
-    {
-        "slug": "nigeria-anambra",
-        "country": "Nigeria",
-        "area": "Awka, Anambra State",
-        "stage": 1,
-        "stage_name": "Survival",
-        "programs": ["Pastoral support", "Food resources"],
-        "photo": "uganda",
-        "alt": "Community members gathered outdoors",
-        "summary": "Awka is our newest community. Work here starts the same way every "
-                   "community does: pastoral presence and food resources that create the "
-                   "baseline security needed before anything else can grow.",
-        "detail": [
-            "Pastoral support introduced through local hospitals",
-            "Food resources for the households under the most strain",
-            "Assessment of land and opportunity for later stages",
-        ],
-        "next": "Next: stabilizing food supply as the foundation for what follows.",
     },
 ]
 

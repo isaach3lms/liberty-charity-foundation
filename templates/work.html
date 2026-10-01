@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Our work | Liberty Charity Foundation{% endblock %}
-{% block description %}Four active communities across Uganda, Cameroon, and Nigeria, supported through pastoral care, food resources, land cultivation, and microfinancing.{% endblock %}
+{% block description %}Three active communities across Uganda, Cameroon, and Nigeria, supported through pastoral care, food resources, land cultivation, and microfinancing.{% endblock %}
 
 {% block content %}
 <section class="pagehead">
   <div class="wrap">
     <p class="eyebrow">Our work</p>
-    <h1 class="h-lg">Four communities on the same ladder, at different rungs</h1>
-    <p class="lede">From first presence in Nigeria to self-sufficiency in Cameroon, every community is on one path: survival to liberty.</p>
+    <h1 class="h-lg">Three communities on the same ladder, at different rungs</h1>
+    <p class="lede">From first pastoral presence in Nigeria to self-sufficiency in Cameroon, every community is on one path: compassion to liberty.</p>
   </div>
 </section>
 
@@ -21,9 +21,9 @@
       </div>
       <div>
         <h2 class="project-country">{{ pr.country }}</h2>
-        <p class="place-line">{{ pr.area }}</p>
+        <p class="place-line">{{ pr.area | safe }}</p>
         <ul class="tag-row">
-          <li class="tag tag-stage">Stage {{ pr.stage }} &middot; {{ pr.stage_name }}</li>
+          <li class="tag tag-stage">{% if pr.badge %}{{ pr.badge }}{% else %}Stage {{ pr.stage }} &middot; {{ pr.stage_name }}{% endif %}</li>
           {% for prog in pr.programs %}<li class="tag">{{ prog }}</li>{% endfor %}
         </ul>
         <p>{{ pr.summary }}</p>

@@ -88,26 +88,26 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">Where we work</p>
-      <h2 class="h-lg">Four communities. Different rungs of the same ladder.</h2>
+      <h2 class="h-lg">Three communities. Different rungs of the same ladder.</h2>
     </div>
 
-    <div class="grid-4 reveal">
+    <div class="grid-3 grid-projects reveal">
       {% for pr in projects %}
       <article>
         <div class="split-media">
           <img src="{{ url_for('static', filename='img/' ~ pr.photo ~ '-900.jpg') }}" alt="{{ pr.alt }}" loading="lazy" width="900" height="600">
         </div>
         <ul class="tag-row mt-1">
-          <li class="tag tag-stage">Stage {{ pr.stage }} &middot; {{ pr.stage_name }}</li>
+          <li class="tag tag-stage">{% if pr.badge %}{{ pr.badge }}{% else %}Stage {{ pr.stage }} &middot; {{ pr.stage_name }}{% endif %}</li>
         </ul>
         <h3 class="h-md" style="margin-bottom:0.15rem">{{ pr.country }}</h3>
-        <p class="place-line">{{ pr.area }}</p>
+        <p class="place-line">{{ pr.area | safe }}</p>
         <p class="muted">{{ pr.summary }}</p>
       </article>
       {% endfor %}
     </div>
 
-    <p class="mt-3"><a class="btn btn-ghost" href="{{ url_for('work') }}">Read about all four projects</a></p>
+    <p class="mt-3"><a class="btn btn-ghost" href="{{ url_for('work') }}">Read about all three projects</a></p>
   </div>
 </section>
 {% endblock %}

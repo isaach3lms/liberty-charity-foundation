@@ -492,9 +492,13 @@ a:hover { color: var(--orange); }
   margin: 0 0 0.7rem;
 }
 
-/* Home "where we work" cards: image height tuned for the 4-up grid. */
-.grid-4 .split-media img { height: 200px; margin-bottom: 1rem; }
-@media (min-width: 600px) { .grid-4 .split-media img { height: 180px; } }
+/* Home "where we work" cards: image height tuned for the grid. */
+.grid-4 .split-media img,
+.grid-projects .split-media img { height: 200px; margin-bottom: 1rem; }
+@media (min-width: 600px) {
+  .grid-4 .split-media img,
+  .grid-projects .split-media img { height: 190px; }
+}
 
 .card-list { list-style: none; margin: 0 0 1.25rem; padding: 0; }
 .card-list li {
