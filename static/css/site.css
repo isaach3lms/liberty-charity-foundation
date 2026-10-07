@@ -145,6 +145,74 @@ a:hover { color: var(--orange); }
 
 .muted { color: var(--ink-soft); }
 
+/* --- Vision & Mission ----------------------------------------------------- */
+
+.vm { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+@media (min-width: 860px) { .vm { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+
+.vm-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--orange);
+  display: inline-block;
+}
+
+.vm-statement {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--navy);
+  margin: 0;
+}
+
+.vm-body { margin: 1.1rem 0 0; color: var(--ink-soft); }
+
+/* The 100%-to-the-field pledge, set apart as the trust signal it is. */
+.pledge {
+  margin: 2.5rem 0 0;
+  padding: 1.75rem 1.9rem;
+  background: var(--navy);
+  border-radius: var(--radius);
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.25rem;
+}
+.pledge-figure {
+  font-family: var(--display);
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
+  line-height: 1;
+  color: var(--sky);
+}
+.pledge-text { font-size: 1.02rem; line-height: 1.45; color: rgba(255,255,255,0.9); max-width: 34ch; }
+
+.vm-focus { margin: 2rem 0 0; }
+.vm-focus-lead { font-weight: 600; color: var(--navy); margin: 0 0 0.9rem; }
+.vm-focus-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+@media (min-width: 620px) { .vm-focus-list { grid-template-columns: repeat(2, 1fr); gap: 0.6rem 1.5rem; } }
+.vm-focus-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+.vm-focus-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
 /* --- Buttons -------------------------------------------------------------- */
 
 .btn {
