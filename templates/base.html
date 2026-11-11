@@ -34,6 +34,10 @@
       </button>
 
       <nav class="nav" id="nav" aria-label="Main">
+        <div class="nav-head">
+          <span class="nav-head-title">Menu</span>
+          <button class="nav-close" type="button" data-nav-close aria-label="Close menu">Close</button>
+        </div>
         <ul class="nav-list">
           {% for key, label, href in nav %}
           <li>
@@ -48,6 +52,7 @@
         </ul>
       </nav>
     </div>
+    <div class="nav-scrim" data-nav-scrim></div>
   </header>
 
   <main id="main">

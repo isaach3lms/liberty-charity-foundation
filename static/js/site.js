@@ -4,12 +4,40 @@
 
   var toggle = document.querySelector("[data-nav-toggle]");
   var nav = document.getElementById("nav");
+  var scrim = document.querySelector("[data-nav-scrim]");
+  var navClose = document.querySelector("[data-nav-close]");
 
   if (toggle && nav) {
+    var openNav = function () {
+      nav.classList.add("is-open");
+      if (scrim) { scrim.classList.add("is-open"); }
+      document.body.classList.add("nav-open");
+      toggle.setAttribute("aria-expanded", "true");
+    };
+    var closeNav = function () {
+      nav.classList.remove("is-open");
+      if (scrim) { scrim.classList.remove("is-open"); }
+      document.body.classList.remove("nav-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
     toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.textContent = open ? "Close" : "Menu";
+      if (nav.classList.contains("is-open")) { closeNav(); } else { openNav(); }
+    });
+    if (navClose) { navClose.addEventListener("click", closeNav); }
+    if (scrim) { scrim.addEventListener("click", closeNav); }
+
+    // Close on Escape and when a drawer link is tapped.
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) { closeNav(); }
+    });
+    nav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", closeNav);
+    });
+
+    // If the viewport grows past the desktop breakpoint, reset drawer state.
+    window.matchMedia("(min-width: 860px)").addEventListener("change", function (ev) {
+      if (ev.matches) { closeNav(); }
     });
   }
 
