@@ -755,7 +755,7 @@ a:hover { color: var(--orange); }
 .foot a:hover { color: var(--orange); }
 
 .foot-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
-@media (min-width: 780px) { .foot-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 3rem; } }
+@media (min-width: 780px) { .foot-grid { grid-template-columns: 1.6fr 1fr; gap: 3rem; } }
 
 .foot-mark { height: 46px; width: auto; margin-bottom: 1rem; }
 .foot-tag { font-family: var(--display); font-style: italic; color: var(--sky); max-width: 34ch; margin: 0; line-height: 1.45; }
