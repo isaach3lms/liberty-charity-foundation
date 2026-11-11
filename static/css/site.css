@@ -735,6 +735,9 @@ a:hover { color: var(--orange); }
   border-radius: var(--radius);
 }
 
+.form-status { margin: 1.1rem 0 0; padding: 0.85rem 1rem; font-size: 0.95rem; border-radius: var(--radius); max-width: 620px; }
+.form-status.is-error { background: #FDECEA; color: #8A1C10; border-left: 4px solid #D8551E; }
+
 .contact-aside { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
 @media (min-width: 940px) {
   .contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: start; }

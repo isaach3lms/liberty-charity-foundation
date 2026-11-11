@@ -14,53 +14,48 @@
 <section class="band">
   <div class="wrap contact-grid">
     <div>
-      {% with messages = get_flashed_messages(category_filter=["error"]) %}
-        {% if messages %}
-        <ul class="flash" role="alert">
-          {% for m in messages %}<li>{{ m }}</li>{% endfor %}
-        </ul>
-        {% endif %}
-      {% endwith %}
+      <form class="form" id="contact-form" method="POST" action="https://api.web3forms.com/submit" novalidate>
+        <input type="hidden" name="access_key" value="4931fc79-c962-4591-b3a2-f6e765bc44ce">
+        <input type="hidden" name="subject" value="New enquiry from the Liberty Charity Foundation website">
+        <input type="hidden" name="from_name" value="Liberty Charity Foundation website">
 
-      <form class="form" method="post" action="{{ url_for('contact') }}" novalidate>
-        <div class="honeypot" aria-hidden="true">
-          <label for="website">Leave this field empty</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-        </div>
+        <!-- Spam honeypot. Web3Forms rejects the submission if this is filled. -->
+        <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none !important;">
 
         <div class="field">
           <label class="label" for="name">Name</label>
-          <input class="input" type="text" id="name" name="name" value="{{ form.name }}" required autocomplete="name">
+          <input class="input" type="text" id="name" name="name" required autocomplete="name">
         </div>
 
         <div class="field">
           <label class="label" for="email">Email</label>
-          <input class="input" type="email" id="email" name="email" value="{{ form.email }}" required autocomplete="email">
+          <input class="input" type="email" id="email" name="email" required autocomplete="email">
         </div>
 
         <div class="field">
           <label class="label" for="organization">Organization <span class="label-hint">(optional)</span></label>
-          <input class="input" type="text" id="organization" name="organization" value="{{ form.organization }}" autocomplete="organization">
+          <input class="input" type="text" id="organization" name="organization" autocomplete="organization">
         </div>
 
         <div class="field">
           <label class="label" for="topic">What is this about</label>
           <select class="select" id="topic" name="topic">
             <option value="">Choose one</option>
-            <option value="Partnership" {% if form.topic == "Partnership" %}selected{% endif %}>Partnership</option>
-            <option value="Giving" {% if form.topic == "Giving" %}selected{% endif %}>Giving</option>
-            <option value="Volunteering" {% if form.topic == "Volunteering" %}selected{% endif %}>Volunteering</option>
-            <option value="A project question" {% if form.topic == "A project question" %}selected{% endif %}>A project question</option>
-            <option value="Something else" {% if form.topic == "Something else" %}selected{% endif %}>Something else</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Giving">Giving</option>
+            <option value="Volunteering">Volunteering</option>
+            <option value="A project question">A project question</option>
+            <option value="Something else">Something else</option>
           </select>
         </div>
 
         <div class="field">
           <label class="label" for="message">Message</label>
-          <textarea class="textarea" id="message" name="message" required>{{ form.message }}</textarea>
+          <textarea class="textarea" id="message" name="message" required></textarea>
         </div>
 
         <button class="btn btn-primary" type="submit">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
 

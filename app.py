@@ -192,45 +192,11 @@ def work():
     )
 
 
-@app.route("/contact", methods=["GET", "POST"], strict_slashes=False)
+@app.route("/contact", strict_slashes=False)
 def contact():
-    form = {"name": "", "email": "", "organization": "", "topic": "", "message": ""}
-
-    if request.method == "POST":
-        # Honeypot. Real people leave it empty.
-        if request.form.get("website", "").strip():
-            return redirect(url_for("contact_thanks"))
-
-        for field in form:
-            form[field] = request.form.get(field, "").strip()
-
-        errors = []
-        if not form["name"]:
-            errors.append("Add your name so we know who we are replying to.")
-        if not EMAIL_RE.match(form["email"]):
-            errors.append("Enter an email address we can reply to.")
-        if len(form["message"]) < 10:
-            errors.append("Tell us a little more in the message field.")
-
-        if errors:
-            for e in errors:
-                flash(e, "error")
-            return render_template("contact.html", page="contact", form=form), 400
-
-        try:
-            send_contact_email(form)
-        except Exception:
-            app.logger.exception("Contact email failed to send")
-            flash(
-                "The message did not send. Email us directly at "
-                f"{app.config['CONTACT_EMAIL']} and we will pick it up from there.",
-                "error",
-            )
-            return render_template("contact.html", page="contact", form=form), 500
-
-        return redirect(url_for("contact_thanks"))
-
-    return render_template("contact.html", page="contact", form=form)
+    # The form submits directly to Web3Forms. On success the page redirects
+    # to /contact/thank-you. Flask only serves the page.
+    return render_template("contact.html", page="contact")
 
 
 @app.route("/contact/thank-you", strict_slashes=False)
